@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISLAMIA PUBLIC SCHOOL | Nishtar Abad, Pakistan — Building Future Leaders</title>
+    <meta name="description" content="Islamia Public School, Nishtar Abad, Pakistan. Quality education, character development, and modern learning under Principal Sher Alam.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        school: {
+                            green: '#0B3B24',
+                            greenLight: '#145335',
+                            greenDark: '#062415',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            goldDark: '#AA861E',
+                            cream: '#FAF9F5'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        urdu: ['"Noto Nastaliq Urdu"', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient { background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #AA861E 100%); }
+        .green-gradient { background: linear-gradient(135deg, #062415 0%, #0B3B24 60%, #145335 100%); }
+        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(11, 59, 36, 0.1), 0 8px 10px -6px rgba(11, 59, 36, 0.05); }
+        .nav-active { color: #D4AF37 !important; border-bottom: 2px solid #D4AF37; }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #0B3B24; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-school-cream text-slate-800 font-sans antialiased selection:bg-school-gold selection:text-school-greenDark">
+
+    <!-- Top Announcement & Contact Bar -->
+    <div class="bg-school-greenDark text-white text-xs sm:text-sm py-2 px-4 border-b border-school-gold/20">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span class="inline-flex items-center gap-1.5 text-school-goldLight font-medium">
+                    <span class="w-2 h-2 rounded-full bg-school-gold animate-pulse"></span>
+                    <span id="top-announcement-text">Admissions Open for New Academic Session — Apply Today!</span>
+                </span>
+            </div>
+            <div class="flex items-center gap-4 ml-auto">
+                <a href="https://wa.me/923353489550" target="_blank" class="hover:text-school-gold transition flex items-center gap-1">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-school-gold"></i>
+                    <span>+92 335 3489550</span>
+                </a>
+                <span class="text-white/30">|</span>
+                <button onclick="openAdminModal()" class="text-school-gold hover:underline font-medium flex items-center gap-1">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                    <span>Admin Portal</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="sticky top-0 z-40 bg-school-green/95 backdrop-blur-md text-white shadow-lg border-b border-school-gold/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand -->
+                <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-3 group">
+                    <!-- Custom Replaceable SVG Crest -->
+                    <div class="w-12 h-12 rounded-xl bg-white p-1.5 shadow-md flex items-center justify-center border-2 border-school-gold group-hover:scale-105 transition">
+                        <svg viewBox="0 0 64 64" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 4L8 14V30C8 45.5 18.2 58.8 32 62C45.8 58.8 56 45.5 56 30V14L32 4Z" fill="#0B3B24" stroke="#D4AF37" stroke-width="3"/>
+                            <path d="M20 34C24 31 28 31 32 34C36 31 40 31 44 34V22C40 19 36 19 32 22C28 19 24 19 20 22V34Z" fill="#D4AF37"/>
+                            <circle cx="32" cy="14" r="2.5" fill="#F3E5AB"/>
+                            <text x="32" y="49" text-anchor="middle" fill="#FFFFFF" font-family="serif" font-weight="bold" font-size="11">IPS</text>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="font-serif font-bold text-lg sm:text-xl tracking-wide text-white leading-tight">ISLAMIA PUBLIC SCHOOL</h1>
+                        <p class="text-[11px] sm:text-xs text-school-gold tracking-widest uppercase font-medium">Nishtar Abad, Pakistan</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium">
+                    <button onclick="navigateTo('home')" data-nav="home" class="nav-link py-2 text-white hover:text-school-gold transition nav-active">Home</button>
+                    <button onclick="navigateTo('about')" data-nav="about" class="nav-link py-2 text-white hover:text-school-gold transition">About Us</button>
+                    <button onclick="navigateTo('academics')" data-nav="academics" class="nav-link py-2 text-white hover:text-school-gold transition">Academics</button>
+                    <button onclick="navigateTo('admissions')" data-nav="admissions" class="nav-link py-2 text-white hover:text-school-gold transition">Admissions</button>
+                    <button onclick="navigateTo('staff')" data-nav="staff" class="nav-link py-2 text-white hover:text-school-gold transition">Faculty</button>
+                    <button onclick="navigateTo('events')" data-nav="events" class="nav-link py-2 text-white hover:text-school-gold transition">News & Events</button>
+                    <button onclick="navigateTo('gallery')" data-nav="gallery" class="nav-link py-2 text-white hover:text-school-gold transition">Gallery</button>
+                    <button onclick="navigateTo('contact')" data-nav="contact" class="nav-link py-2 text-white hover:text-school-gold transition">Contact</button>
+                </nav>
+
+                <!-- CTA & Mobile Toggle -->
+                <div class="flex items-center gap-3">
+                    <button onclick="navigateTo('admissions')" class="hidden sm:inline-flex items-center gap-2 bg-school-gold hover:bg-school-goldDark text-school-greenDark font-bold text-xs sm:text-sm px-4 py-2.5 rounded-lg shadow transition">
+                        <span>Apply Now</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-white hover:bg-school-greenLight">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-school-greenDark border-t border-school-gold/20 px-4 pt-2 pb-6 space-y-1">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-white hover:bg-school-greenLight">Home</button>
+            <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-white hover:bg-school-greenLight">About Us</button>
+            <button onclick="navigateTo('academics'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-white hover:bg-school-greenLight">Academics</button>
+            <button onclick="navigateTo('admissions'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-white hover:bg-school-greenLight">Admissions</button>
+            <button onclick="navigateTo('staff'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-white hover:bg-school-greenLight">Teachers & Staff</button>
+            <button onclick="navigateTo('events'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-white hover:bg-school-greenLight">News & Events</button>
+            <button onclick="navigateTo('gallery'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-white hover:bg-school-greenLight">Gallery</button>
+            <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-md text-base font-medium text-white hover:bg-school-greenLight">Contact Us</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main id="app-content">
+
+        <!-- ==================== 1. HOME VIEW ==================== -->
+        <section id="view-home" class="page-view">
+            <!-- Hero Section -->
+            <div class="relative green-gradient text-white overflow-hidden">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-school-greenDark via-school-green/90 to-school-green/60"></div>
+                
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-school-gold/20 border border-school-gold/40 text-school-goldLight text-xs sm:text-sm font-semibold">
+                            <i data-lucide="award" class="w-4 h-4 text-school-gold"></i>
+                            <span>Excellence in Education & Moral Character • Nishtar Abad</span>
+                        </div>
+                        <h2 id="hero-headline" class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                            Building Future Leaders Through <span class="text-school-gold">Education.</span>
+                        </h2>
+                        <p id="hero-subheadline" class="text-base sm:text-lg text-slate-200 max-w-2xl leading-relaxed">
+                            At Islamia Public School, Nishtar Abad, we nurture curious minds, strong ethical values, and academic confidence—preparing every student to thrive in a modern world while staying rooted in integrity.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <button onclick="navigateTo('admissions')" class="bg-school-gold hover:bg-school-goldDark text-school-greenDark font-bold px-7 py-3.5 rounded-xl shadow-lg transition flex items-center gap-2">
+                                <span>Apply for Admission</span>
+                                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                            </button>
+                            <button onclick="navigateTo('contact')" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-7 py-3.5 rounded-xl backdrop-blur-sm transition flex items-center gap-2">
+                                <span>Contact Us</span>
+                                <i data-lucide="map-pin" class="w-5 h-5 text-school-gold"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hero Featured Card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-white/10 backdrop-blur-md border border-school-gold/30 rounded-2xl p-6 shadow-2xl space-y-5">
+                            <div class="relative rounded-xl overflow-hidden aspect-[4/3] bg-school-greenDark">
+                                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80" alt="Islamia Public School Campus" class="w-full h-full object-cover">
+                                <div class="absolute bottom-3 left-3 right-3 bg-school-greenDark/90 backdrop-blur-sm px-4 py-2.5 rounded-lg border border-school-gold/30">
+                                    <p class="text-xs text-school-gold font-semibold uppercase">Admissions Desk</p>
+                                    <p class="text-sm text-white font-medium">Direct Inquiries: +92 335 3489550</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-3 text-center">
+                                <div class="bg-school-greenDark/60 p-3 rounded-xl border border-white/10">
+                                    <p class="font-serif text-xl font-bold text-school-gold">ECE–10</p>
+                                    <p class="text-[11px] text-slate-300">Class Levels</p>
+                                </div>
+                                <div class="bg-school-greenDark/60 p-3 rounded-xl border border-white/10">
+                                    <p class="font-serif text-xl font-bold text-school-gold">Dedicated</p>
+                                    <p class="text-[11px] text-slate-300">Faculty</p>
+                                </div>
+                                <div class="bg-school-greenDark/60 p-3 rounded-xl border border-white/10">
+                                    <p class="font-serif text-xl font-bold text-school-gold">24/7 AI</p>
+                                    <p class="text-[11px] text-slate-300">Parent Desk</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Principal's Welcome & School Highlights -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid lg:grid-cols-12 gap-10 items-center bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-slate-200/80">
+                    <div class="lg:col-span-4 flex flex-col items-center text-center">
+                        <div class="w-44 h-44 rounded-full p-1.5 gold-gradient shadow-lg mb-4">
+                            <div class="w-full h-full rounded-full bg-school-green flex items-center justify-center text-white overflow-hidden">
+                                <div class="text-center p-4">
+                                    <i data-lucide="user-check" class="w-14 h-14 text-school-gold mx-auto mb-1"></i>
+                                    <span class="text-[10px] uppercase tracking-wider text-school-goldLight block">Principal</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-school-green">Sher Alam</h3>
+                        <p class="text-sm font-semibold text-school-goldDark">Principal, Islamia Public School</p>
+                        <p class="text-xs text-slate-500 mt-1">Nishtar Abad, Pakistan</p>
+                    </div>
+                    <div class="lg:col-span-8 space-y-4">
+                        <span class="text-xs font-bold uppercase tracking-widest text-school-goldDark">Principal's Welcome Message</span>
+                        <h3 class="font-serif text-3xl font-bold text-school-green">Nurturing Intellect, Discipline, and Compassion</h3>
+                        <p id="principal-message-text" class="text-slate-600 leading-relaxed">
+                            "Welcome to Islamia Public School, Nishtar Abad. Our mission is to provide a safe, disciplined, and intellectually stimulating environment where every child discovers their potential. Alongside strong foundational academics, we place equal emphasis on moral character, respect, and lifelong curiosity so our students grow into responsible citizens and future leaders."
+                        </p>
+                        <div class="pt-2 flex flex-wrap gap-4">
+                            <button onclick="navigateTo('about')" class="text-school-green font-bold text-sm hover:text-school-goldDark inline-flex items-center gap-1.5">
+                                <span>Read Full Vision & Philosophy</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Excellence Pillars -->
+            <div class="bg-school-green text-white py-16">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <span class="text-school-gold text-xs font-bold uppercase tracking-widest">Why Choose Us</span>
+                        <h3 class="font-serif text-3xl sm:text-4xl font-bold mt-2">Pillars of Academic Excellence</h3>
+                    </div>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-school-greenLight/60 border border-school-gold/20 rounded-2xl p-6 card-hover">
+                            <div class="w-12 h-12 rounded-xl bg-school-gold/20 text-school-gold flex items-center justify-center mb-4">
+                                <i data-lucide="book-open" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-serif text-xl font-bold mb-2">Structured Curriculum</h4>
+                            <p class="text-sm text-slate-300 leading-relaxed">Comprehensive progression from Early Childhood through Secondary levels with clear learning outcomes.</p>
+                        </div>
+                        <div class="bg-school-greenLight/60 border border-school-gold/20 rounded-2xl p-6 card-hover">
+                            <div class="w-12 h-12 rounded-xl bg-school-gold/20 text-school-gold flex items-center justify-center mb-4">
+                                <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-serif text-xl font-bold mb-2">Character & Ethics</h4>
+                            <p class="text-sm text-slate-300 leading-relaxed">Daily emphasis on honesty, discipline, Islamic moral values, and community respect.</p>
+                        </div>
+                        <div class="bg-school-greenLight/60 border border-school-gold/20 rounded-2xl p-6 card-hover">
+                            <div class="w-12 h-12 rounded-xl bg-school-gold/20 text-school-gold flex items-center justify-center mb-4">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-serif text-xl font-bold mb-2">Individual Attention</h4>
+                            <p class="text-sm text-slate-300 leading-relaxed">Continuous student assessment and close parent-teacher coordination to track every child's growth.</p>
+                        </div>
+                        <div class="bg-school-greenLight/60 border border-school-gold/20 rounded-2xl p-6 card-hover">
+                            <div class="w-12 h-12 rounded-xl bg-school-gold/20 text-school-gold flex items-center justify-center mb-4">
+                                <i data-lucide="sparkles" class="w-6 h-6"></i>
+                            </div>
+                            <h4 class="font-serif text-xl font-bold mb-2">Co-Curricular Growth</h4>
+                            <p class="text-sm text-slate-300 leading-relaxed">Speech competitions, science exhibitions, sports days, and cultural celebrations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest Announcements & Featured Events Preview -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="flex flex-wrap justify-between items-end mb-8 gap-4">
+                    <div>
+                        <span class="text-school-goldDark text-xs font-bold uppercase tracking-widest">Campus Updates</span>
+                        <h3 class="font-serif text-3xl font-bold text-school-green mt-1">Latest News & Announcements</h3>
+                    </div>
+                    <button onclick="navigateTo('events')" class="text-sm font-bold text-school-green hover:text-school-goldDark flex items-center gap-1">
+                        <span>View All Events</span>
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <div id="home-events-preview" class="grid md:grid-cols-3 gap-6">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Parent Testimonials -->
+            <div class="bg-slate-100 py-16 border-y border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <span class="text-school-goldDark text-xs font-bold uppercase tracking-widest">Community Trust</span>
+                        <h3 class="font-serif text-3xl font-bold text-school-green mt-1">What Parents Say</h3>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                            <div class="flex text-school-gold mb-3">★★★★★</div>
+                            <p class="text-sm text-slate-600 italic mb-4">"Islamia Public School has transformed my son's confidence in English and Mathematics. The teachers genuinely care about discipline and manners."</p>
+                            <p class="font-bold text-school-green text-sm">— Parent of Primary Student</p>
+                            <p class="text-xs text-slate-400">Nishtar Abad</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                            <div class="flex text-school-gold mb-3">★★★★★</div>
+                            <p class="text-sm text-slate-600 italic mb-4">"Principal Sher Alam and the faculty maintain a very safe and welcoming environment. Parent-teacher communication is always clear and respectful."</p>
+                            <p class="font-bold text-school-green text-sm">— Parent of Middle School Student</p>
+                            <p class="text-xs text-slate-400">Nishtar Abad</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                            <div class="flex text-school-gold mb-3">★★★★★</div>
+                            <p class="text-sm text-slate-600 italic mb-4">"We appreciate the balance between strong academics and ethical upbringing. Our children look forward to attending school every morning."</p>
+                            <p class="font-bold text-school-green text-sm">— Parent of Early Childhood Student</p>
+                            <p class="text-xs text-slate-400">Nishtar Abad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 2. ABOUT US VIEW ==================== -->
+        <section id="view-about" class="page-view hidden py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-school-goldDark text-xs font-bold uppercase tracking-widest">About Our Institution</span>
+                <h2 class="font-serif text-4xl font-bold text-school-green mt-2">ISLAMIA PUBLIC SCHOOL, Nishtar Abad</h2>
+                <p class="text-slate-600 mt-4 leading-relaxed">Dedicated to nurturing knowledgeable, principled, and confident learners in a supportive educational environment.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-school-green text-school-gold flex items-center justify-center">
+                        <i data-lucide="eye" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-school-green">Our Vision</h3>
+                    <p class="text-slate-600 leading-relaxed">To be a beacon of quality education in Nishtar Abad, empowering students with academic excellence, critical thinking, and strong moral integrity so they contribute positively to society.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 space-y-3">
+                    <div class="w-12 h-12 rounded-xl bg-school-green text-school-gold flex items-center justify-center">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-school-green">Our Mission</h3>
+                    <p class="text-slate-600 leading-relaxed">To deliver accessible, student-centered instruction led by dedicated educators, fostering curiosity, discipline, and respect for cultural and Islamic values.</p>
+                </div>
+            </div>
+
+            <div class="bg-school-green text-white rounded-3xl p-8 sm:p-12">
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-school-gold mb-4">School History & Heritage</h3>
+                <p class="text-slate-200 leading-relaxed mb-4">
+                    [Editable School History Placeholder: Islamia Public School was established in Nishtar Abad with a clear commitment to serving local families through dependable, high-standard schooling. Under the leadership of Principal Sher Alam, the institution continues to expand its academic resources and student development programs.]
+                </p>
+                <div class="grid sm:grid-cols-3 gap-4 pt-4 border-t border-white/15">
+                    <div>
+                        <h4 class="font-bold text-school-gold">Core Values</h4>
+                        <p class="text-sm text-slate-300 mt-1">Integrity, Respect, Discipline, Diligence, and Compassion.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-school-gold">Educational Philosophy</h4>
+                        <p class="text-sm text-slate-300 mt-1">Conceptual understanding over rote memorization, paired with character building.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-school-gold">Campus Facilities</h4>
+                        <p class="text-sm text-slate-300 mt-1">Well-ventilated classrooms, science & learning aids, activity spaces, and secure premises.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 3. ACADEMICS VIEW ==================== -->
+        <section id="view-academics" class="page-view hidden py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="text-school-goldDark text-xs font-bold uppercase tracking-widest">Academic Programs</span>
+                <h2 class="font-serif text-4xl font-bold text-school-green mt-2">Structured Learning Stages</h2>
+                <p class="text-slate-600 mt-3">Click each academic stage below to explore our curriculum focus, teaching methodology, and student assessment approach.</p>
+            </div>
+
+            <!-- Interactive Stage Tabs -->
+            <div class="flex flex-wrap justify-center gap-3">
+                <button onclick="selectAcademicTab('ece')" id="tab-ece" class="acad-tab px-5 py-2.5 rounded-xl font-bold text-sm bg-school-green text-white shadow">Early Childhood (ECE)</button>
+                <button onclick="selectAcademicTab('primary')" id="tab-primary" class="acad-tab px-5 py-2.5 rounded-xl font-bold text-sm bg-white text-school-green border border-slate-200">Primary Classes</button>
+                <button onclick="selectAcademicTab('middle')" id="tab-middle" class="acad-tab px-5 py-2.5 rounded-xl font-bold text-sm bg-white text-school-green border border-slate-200">Middle Classes</button>
+                <button onclick="selectAcademicTab('secondary')" id="tab-secondary" class="acad-tab px-5 py-2.5 rounded-xl font-bold text-sm bg-white text-school-green border border-slate-200">Secondary Classes</button>
+            </div>
+
+            <div id="academic-tab-content" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+                <!-- Populated dynamically -->
+            </div>
+
+            <!-- Methodology & Examination System -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <h4 class="font-serif text-xl font-bold text-school-green mb-2">Teaching Methodology</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Interactive classroom instruction, bilingual conceptual clarity (English & Urdu), regular classwork exercises, and guided reading practice.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <h4 class="font-serif text-xl font-bold text-school-green mb-2">Examination System</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Structured monthly tests, mid-term assessments, and annual examinations designed to build exam readiness and analytical writing skills.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200">
+                    <h4 class="font-serif text-xl font-bold text-school-green mb-2">Progress Monitoring</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">Regular report cards, attendance tracking, and scheduled parent-teacher meetings to keep families informed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 4. ADMISSIONS VIEW ==================== -->
+        <section id="view-admissions" class="page-view hidden py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="bg-school-green text-white rounded-3xl p-8 sm:p-12 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+                <div class="space-y-2 max-w-2xl">
+                    <span class="inline-block px-3 py-1 rounded-full bg-school-gold text-school-greenDark text-xs font-bold uppercase">Admissions Open</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold">Join Islamia Public School</h2>
+                    <p id="admission-banner-desc" class="text-slate-200 text-sm sm:text-base">We welcome applications from motivated students across Early Childhood, Primary, Middle, and Secondary classes.</p>
+                </div>
+                <a href="https://wa.me/923353489550?text=Assalam-o-Alaikum!%20I%20would%20like%20to%20inquire%20about%20admissions%20at%20Islamia%20Public%20School." target="_blank" class="bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-6 py-3.5 rounded-xl shadow-lg flex items-center gap-2 shrink-0 transition">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                    <span>WhatsApp Admission Desk</span>
+                </a>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <!-- Procedure & Requirements -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="bg-white p-7 rounded-2xl border border-slate-200 space-y-4">
+                        <h3 class="font-serif text-2xl font-bold text-school-green">Admission Procedure</h3>
+                        <ol class="space-y-3 text-sm text-slate-600 list-decimal list-inside">
+                            <li><strong>Inquiry & Registration:</strong> Submit the online inquiry form below or visit the school office in Nishtar Abad.</li>
+                            <li><strong>Document Submission:</strong> Provide previous school leaving certificate (if applicable), birth certificate/B-Form copy, and passport-size photographs.</li>
+                            <li><strong>Placement Assessment:</strong> Age-appropriate readiness check / entry assessment for grade placement.</li>
+                            <li><strong>Confirmation:</strong> Complete enrollment formalities upon approval by the administration.</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200 space-y-2">
+                        <div class="flex items-center gap-2 text-school-green font-bold">
+                            <i data-lucide="info" class="w-5 h-5 text-school-goldDark"></i>
+                            <span>Fee Structure & Dates (Admin Editable)</span>
+                        </div>
+                        <p id="admission-policy-note" class="text-sm text-slate-700 leading-relaxed">
+                            Official fee schedules, scholarship criteria, and exact test dates are provided directly by the school administration office. Contact us at <strong>+92 335 3489550</strong> or update via the Admin Portal.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Online Admission Inquiry Form -->
+                <div class="lg:col-span-6 bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="font-serif text-2xl font-bold text-school-green mb-1">Online Admission Inquiry</h3>
+                    <p class="text-xs text-slate-500 mb-6">Fill out the details below and our admissions desk will reach out to you.</p>
+                    <form id="admission-form" onsubmit="handleAdmissionSubmit(event)" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Student Full Name *</label>
+                                <input type="text" id="adm-student" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-school-green" placeholder="Enter student name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Class Applying For *</label>
+                                <select id="adm-grade" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-school-green">
+                                    <option value="">Select Class</option>
+                                    <option>Early Childhood (Playgroup / Nursery / Prep)</option>
+                                    <option>Primary (Class 1 – Class 5)</option>
+                                    <option>Middle (Class 6 – Class 8)</option>
+                                    <option>Secondary (Class 9 – Class 10)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Parent / Guardian Name *</label>
+                                <input type="text" id="adm-parent" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-school-green" placeholder="Parent name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Phone / WhatsApp Number *</label>
+                                <input type="tel" id="adm-phone" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-school-green" placeholder="03XX-XXXXXXX">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Previous School & Questions (Optional)</label>
+                            <textarea id="adm-notes" rows="3" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-school-green" placeholder="Any specific questions about timings, transport, or documents..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-school-green hover:bg-school-greenLight text-white font-bold py-3 rounded-xl shadow transition">
+                            Submit Admission Inquiry
+                        </button>
+                    </form>
+                    <div id="admission-success-msg" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium">
+                        Thank you! Your admission inquiry has been recorded. You can also message us directly on WhatsApp (+92 335 3489550) for immediate assistance.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 5. TEACHERS & STAFF VIEW ==================== -->
+        <section id="view-staff" class="page-view hidden py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-school-goldDark text-xs font-bold uppercase tracking-widest">Academic Leadership</span>
+                <h2 class="font-serif text-4xl font-bold text-school-green mt-2">Our Teachers & Staff</h2>
+                <p class="text-slate-600 mt-2">Experienced, dedicated educators committed to academic clarity and student mentorship.</p>
+            </div>
+            <div id="staff-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Populated dynamically -->
+            </div>
+        </section>
+
+        <!-- ==================== 6. NEWS & EVENTS VIEW ==================== -->
+        <section id="view-events" class="page-view hidden py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-school-goldDark text-xs font-bold uppercase tracking-widest">School Life</span>
+                <h2 class="font-serif text-4xl font-bold text-school-green mt-2">News, Events & Announcements</h2>
+                <p class="text-slate-600 mt-2">Stay updated with celebrations, competitions, science exhibitions, and important notices.</p>
+            </div>
+            <div id="events-grid" class="grid md:grid-cols-3 gap-6">
+                <!-- Populated dynamically -->
+            </div>
+        </section>
+
+        <!-- ==================== 7. GALLERY VIEW ==================== -->
+        <section id="view-gallery" class="page-view hidden py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-school-goldDark text-xs font-bold uppercase tracking-widest">Campus Moments</span>
+                <h2 class="font-serif text-4xl font-bold text-school-green mt-2">Photo Gallery</h2>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="flex flex-wrap justify-center gap-2">
+                <button onclick="filterGallery('All')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold bg-school-green text-white">All</button>
+                <button onclick="filterGallery('Classroom Activities')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold bg-white text-school-green border border-slate-200">Classroom Activities</button>
+                <button onclick="filterGallery('Science Activities')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold bg-white text-school-green border border-slate-200">Science Activities</button>
+                <button onclick="filterGallery('Sports')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold bg-white text-school-green border border-slate-200">Sports</button>
+                <button onclick="filterGallery('Annual Functions')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold bg-white text-school-green border border-slate-200">Annual Functions</button>
+                <button onclick="filterGallery('Cultural Events')" class="gal-filter px-4 py-2 rounded-full text-xs font-bold bg-white text-school-green border border-slate-200">Cultural Events</button>
+            </div>
+
+            <div id="gallery-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated dynamically -->
+            </div>
+        </section>
+
+        <!-- ==================== 8. CONTACT US VIEW ==================== -->
+        <section id="view-contact" class="page-view hidden py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-school-goldDark text-xs font-bold uppercase tracking-widest">Get in Touch</span>
+                <h2 class="font-serif text-4xl font-bold text-school-green mt-2">Contact Islamia Public School</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-white p-7 rounded-2xl border border-slate-200 space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-school-green text-school-gold flex items-center justify-center shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-school-green">Campus Address</h4>
+                                <p class="text-sm text-slate-600">ISLAMIA PUBLIC SCHOOL, Nishtar Abad, Pakistan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-school-green text-school-gold flex items-center justify-center shrink-0">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-school-green">Phone & WhatsApp</h4>
+                                <a href="https://wa.me/923353489550" target="_blank" class="text-sm text-emerald-700 font-semibold hover:underline">+92 335 3489550</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-school-green text-school-gold flex items-center justify-center shrink-0">
+                                <i data-lucide="facebook" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-school-green">Official Facebook Page</h4>
+                                <a href="https://www.facebook.com/search/top?q=ISLAMIA%20Public%20School%2C%20Nishtar%20Abad" target="_blank" class="text-sm text-blue-700 font-semibold hover:underline">ISLAMIA Public School, Nishtar Abad</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Google Maps Embed -->
+                    <div class="rounded-2xl overflow-hidden border border-slate-200 h-64 bg-slate-200">
+                        <iframe title="Islamia Public School Nishtar Abad Map" class="w-full h-full border-0" loading="lazy" src="https://maps.google.com/maps?q=Nishtar%20Abad%20Pakistan&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-slate-200">
+                    <h3 class="font-serif text-2xl font-bold text-school-green mb-4">Send Us a Message</h3>
+                    <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
+                                <input type="text" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm" placeholder="Full Name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Phone / Email *</label>
+                                <input type="text" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm" placeholder="Contact info">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Subject</label>
+                            <input type="text" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm" placeholder="General Inquiry / Feedback">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Message *</label>
+                            <textarea rows="4" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm" placeholder="How can we assist you?"></textarea>
+                        </div>
+                        <button type="submit" class="bg-school-green hover:bg-school-greenLight text-white font-bold px-6 py-3 rounded-xl transition">Send Message</button>
+                    </form>
+                    <p id="contact-feedback" class="hidden mt-4 text-sm text-emerald-700 font-semibold">Message sent! Thank you for contacting Islamia Public School.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-school-greenDark text-slate-300 border-t border-school-gold/30 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-4 gap-8">
+            <div class="md:col-span-2 space-y-3">
+                <h4 class="font-serif text-xl font-bold text-white">ISLAMIA PUBLIC SCHOOL</h4>
+                <p class="text-xs text-school-gold uppercase tracking-widest">Nishtar Abad, Pakistan • Principal: Sher Alam</p>
+                <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+                    Building Future Leaders Through Education. Committed to academic excellence, moral discipline, and holistic student growth.
+                </p>
+            </div>
+            <div>
+                <h5 class="font-bold text-white text-sm uppercase tracking-wider mb-3">Quick Links</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><button onclick="navigateTo('about')" class="hover:text-school-gold">About Us</button></li>
+                    <li><button onclick="navigateTo('academics')" class="hover:text-school-gold">Academic Programs</button></li>
+                    <li><button onclick="navigateTo('admissions')" class="hover:text-school-gold">Admissions</button></li>
+                    <li><button onclick="navigateTo('staff')" class="hover:text-school-gold">Teachers & Staff</button></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white text-sm uppercase tracking-wider mb-3">Connect</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="https://wa.me/923353489550" target="_blank" class="hover:text-school-gold flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-school-gold"></i> +92 335 3489550</a></li>
+                    <li><a href="https://www.facebook.com/search/top?q=ISLAMIA%20Public%20School%2C%20Nishtar%20Abad" target="_blank" class="hover:text-school-gold flex items-center gap-2"><i data-lucide="facebook" class="w-4 h-4 text-school-gold"></i> Facebook Page</a></li>
+                    <li><button onclick="openAdminModal()" class="hover:text-school-gold flex items-center gap-2"><i data-lucide="lock" class="w-4 h-4 text-school-gold"></i> Admin Dashboard</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10 py-4 text-center text-xs text-slate-400">
+            © 2026 ISLAMIA PUBLIC SCHOOL, Nishtar Abad, Pakistan. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- ==================== FLOATING WHATSAPP & AI ASSISTANT ==================== -->
+    <div class="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+        <!-- AI Chat Window -->
+        <div id="ai-chat-window" class="hidden w-[340px] sm:w-[390px] bg-white rounded-2xl shadow-2xl border border-school-gold/40 overflow-hidden flex flex-col max-h-[540px]">
+            <!-- Chat Header -->
+            <div class="green-gradient text-white p-4 flex justify-between items-center border-b border-school-gold/30">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-full bg-school-gold text-school-greenDark flex items-center justify-center font-bold">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm leading-tight">Islamia School AI Assistant</h4>
+                        <p class="text-[11px] text-school-goldLight">English • اردو • Roman Urdu</p>
+                    </div>
+                </div>
+                <button onclick="toggleAIChat()" class="text-white/80 hover:text-white p-1">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Messages Container -->
+            <div id="ai-messages" class="p-4 space-y-3 overflow-y-auto flex-1 bg-slate-50 text-sm max-h-[340px]">
+                <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3.5 shadow-sm text-slate-700">
+                    <p class="font-semibold text-school-green text-xs mb-1">Islamia School AI Assistant</p>
+                    <p>Assalam-o-Alaikum! Welcome to <strong>Islamia Public School, Nishtar Abad</strong>. How may I assist you today? You can ask about admissions, classes, facilities, or contact details in <strong>English, Urdu, or Roman Urdu</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Quick Prompts -->
+            <div class="px-3 py-2 bg-white border-t border-slate-100 flex gap-1.5 overflow-x-auto text-[11px]">
+                <button onclick="sendQuickPrompt('Admission procedure kya hai?')" class="shrink-0 px-2.5 py-1 rounded-full bg-school-cream border border-school-gold/40 text-school-green font-medium hover:bg-school-gold/20">Admission Procedure</button>
+                <button onclick="sendQuickPrompt('Which classes are available?')" class="shrink-0 px-2.5 py-1 rounded-full bg-school-cream border border-school-gold/40 text-school-green font-medium hover:bg-school-gold/20">Available Classes</button>
+                <button onclick="sendQuickPrompt('Contact and WhatsApp number')" class="shrink-0 px-2.5 py-1 rounded-full bg-school-cream border border-school-gold/40 text-school-green font-medium hover:bg-school-gold/20">Contact Info</button>
+            </div>
+
+            <!-- Chat Input -->
+            <form onsubmit="handleAIChatSubmit(event)" class="p-3 bg-white border-t border-slate-200 flex gap-2">
+                <input type="text" id="ai-input" placeholder="Ask a question..." class="flex-1 px-3 py-2 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-school-green" required>
+                <button type="submit" class="bg-school-green hover:bg-school-greenLight text-school-gold px-3.5 py-2 rounded-xl font-bold transition">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- Floating Buttons Row -->
+        <div class="flex items-center gap-3">
+            <a href="https://wa.me/923353489550" target="_blank" title="Chat on WhatsApp" class="w-12 h-12 rounded-full bg-[#25D366] hover:scale-105 text-white shadow-lg flex items-center justify-center transition">
+                <i data-lucide="message-circle" class="w-6 h-6"></i>
+            </a>
+            <button onclick="toggleAIChat()" class="bg-school-green hover:bg-school-greenLight text-white border-2 border-school-gold px-4 py-3 rounded-full shadow-xl flex items-center gap-2.5 font-bold text-sm transition hover:scale-105">
+                <i data-lucide="sparkles" class="w-5 h-5 text-school-gold"></i>
+                <span>Islamia AI Assistant</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ==================== LIGHTBOX MODAL ==================== -->
+    <div id="lightbox-modal" onclick="closeLightbox()" class="hidden fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-4">
+        <div class="max-w-3xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="" class="w-full max-h-[75vh] object-contain bg-black">
+            <div class="p-4 flex justify-between items-center">
+                <div>
+                    <h4 id="lightbox-title" class="font-bold text-school-green"></h4>
+                    <p id="lightbox-cat" class="text-xs text-slate-500"></p>
+                </div>
+                <button onclick="closeLightbox()" class="px-4 py-1.5 rounded-lg bg-school-green text-white text-xs font-bold">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== ADMIN DASHBOARD MODAL ==================== -->
+    <div id="admin-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl border border-school-gold/40 overflow-hidden my-8">
+            <div class="green-gradient text-white px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield" class="w-5 h-5 text-school-gold"></i>
+                    <h3 class="font-serif text-lg font-bold">ISLAMIA PUBLIC SCHOOL — Admin Portal</h3>
+                </div>
+                <button onclick="closeAdminModal()" class="text-white/80 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+
+            <!-- Login Screen -->
+            <div id="admin-login-view" class="p-8 max-w-md mx-auto space-y-4">
+                <p class="text-sm text-slate-600 text-center">Sign in to manage website content, AI knowledge base, faculty profiles, and admission inquiries.</p>
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-600 text-center">
+                    Demo Credentials: <strong>admin</strong> / <strong>islamia2026</strong>
+                </div>
+                <input type="text" id="admin-user" placeholder="Username" value="admin" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm">
+                <input type="password" id="admin-pass" placeholder="Password" value="islamia2026" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm">
+                <button onclick="loginAdmin()" class="w-full bg-school-green text-white font-bold py-2.5 rounded-xl">Access Dashboard</button>
+                <p id="admin-login-err" class="hidden text-xs text-red-600 text-center">Invalid credentials.</p>
+            </div>
+
+            <!-- Authenticated Dashboard -->
+            <div id="admin-dashboard-view" class="hidden p-6 space-y-6 max-h-[80vh] overflow-y-auto">
+                <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
+                    <button onclick="switchAdminTab('content')" class="adm-tab px-3.5 py-1.5 rounded-lg text-xs font-bold bg-school-green text-white">Site & Admissions</button>
+                    <button onclick="switchAdminTab('kb')" class="adm-tab px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">AI Knowledge Base</button>
+                    <button onclick="switchAdminTab('staff')" class="adm-tab px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">Manage Staff</button>
+                    <button onclick="switchAdminTab('inquiries')" class="adm-tab px-3.5 py-1.5 rounded-lg text-xs font-bold bg-slate-100 text-slate-700">Inquiries & AI Logs</button>
+                </div>
+
+                <!-- Tab 1: Site & Admission Content -->
+                <div id="adm-panel-content" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Top Announcement Banner</label>
+                        <input type="text" id="edit-announcement" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Admission Policy & Fee Note</label>
+                        <textarea id="edit-adm-note" rows="3" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm"></textarea>
+                    </div>
+                    <button onclick="saveSiteContent()" class="bg-school-gold text-school-greenDark font-bold px-5 py-2 rounded-lg text-sm">Save Live Changes</button>
+                </div>
+
+                <!-- Tab 2: AI Knowledge Base -->
+                <div id="adm-panel-kb" class="hidden space-y-4">
+                    <p class="text-xs text-slate-600">Add verified facts below. The <strong>Islamia School AI Assistant</strong> strictly uses this knowledge base and never invents unverified fees or policies.</p>
+                    <div class="grid sm:grid-cols-3 gap-2">
+                        <input type="text" id="kb-keywords" placeholder="Keywords (e.g. timing, uniform)" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        <input type="text" id="kb-answer" placeholder="Verified official answer..." class="sm:col-span-2 px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                    </div>
+                    <button onclick="addKBEntry()" class="bg-school-green text-white font-bold px-4 py-2 rounded-lg text-xs">+ Add to AI Knowledge Base</button>
+                    <div id="kb-list" class="space-y-2 pt-2"></div>
+                </div>
+
+                <!-- Tab 3: Manage Staff -->
+                <div id="adm-panel-staff" class="hidden space-y-4">
+                    <div class="grid sm:grid-cols-4 gap-2">
+                        <input type="text" id="new-staff-name" placeholder="Teacher Name" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        <input type="text" id="new-staff-role" placeholder="Designation" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        <input type="text" id="new-staff-qual" placeholder="Qualification" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                        <input type="text" id="new-staff-subj" placeholder="Subject" class="px-3 py-2 rounded-lg border border-slate-300 text-xs">
+                    </div>
+                    <button onclick="addStaffMember()" class="bg-school-green text-white font-bold px-4 py-2 rounded-lg text-xs">+ Add Faculty Member</button>
+                    <div id="admin-staff-list" class="space-y-2"></div>
+                </div>
+
+                <!-- Tab 4: Inquiries & AI Logs -->
+                <div id="adm-panel-inquiries" class="hidden space-y-4">
+                    <h4 class="font-bold text-sm text-school-green">Submitted Admission Inquiries</h4>
+                    <div id="admin-inquiries-list" class="space-y-2 text-xs"></div>
+                    <h4 class="font-bold text-sm text-school-green pt-4">Recent AI Assistant Questions</h4>
+                    <div id="admin-chat-logs" class="space-y-1.5 text-xs text-slate-600"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== INITIAL VERIFIED SCHOOL DATA ====================
+        const defaultData = {
+            announcement: "Admissions Open for New Academic Session — Apply Today!",
+            admissionNote: "Official fee schedules, scholarship criteria, and exact test dates are provided directly by the school administration office. Contact us at +92 335 3489550 or visit the campus in Nishtar Abad.",
+            staff: [
+                { name: "Sher Alam", role: "Principal", qual: "Academic Leadership", subj: "School Administration & English" },
+                { name: "Senior Science Faculty", role: "Head of Sciences", qual: "M.Sc. / B.Ed.", subj: "Physics & General Science" },
+                { name: "Senior Mathematics Faculty", role: "Mathematics Coordinator", qual: "M.Sc. Mathematics", subj: "Mathematics" },
+                { name: "Early Childhood Coordinator", role: "ECE Lead Teacher", qual: "Montessori / B.Ed.", subj: "Early Childhood Education" }
+            ],
+            events: [
+                { title: "New Session Admissions Open", date: "Ongoing", category: "Announcement", desc: "Registration is open for Early Childhood, Primary, Middle, and Secondary classes at Islamia Public School, Nishtar Abad.", img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" },
+                { title: "Annual Science & Project Exhibition", date: "Upcoming", category: "Science Activities", desc: "Students showcase working models, environmental experiments, and creative problem-solving projects.", img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80" },
+                { title: "Parent-Teacher Progress Session", date: "Scheduled", category: "Academic", desc: "Individual academic progress reviews and constructive guidance between parents and faculty.", img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" }
+            ],
+            gallery: [
+                { title: "Interactive Classroom Learning", category: "Classroom Activities", img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" },
+                { title: "Science Discovery Lab", category: "Science Activities", img: "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?auto=format&fit=crop&w=800&q=80" },
+                { title: "Annual Sports Day", category: "Sports", img: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80" },
+                { title: "Annual Prize Distribution", category: "Annual Functions", img: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80" },
+                { title: "Cultural & Speech Competition", category: "Cultural Events", img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" }
+            ],
+            kb: [
+                { keywords: "principal, head, sher alam", answer: "The Principal of Islamia Public School, Nishtar Abad is Mr. Sher Alam." },
+                { keywords: "location, address, kahan, where, nishtar abad", answer: "Islamia Public School is located in Nishtar Abad, Pakistan." },
+                { keywords: "contact, phone, whatsapp, number, rabta", answer: "You can contact the school administration via Phone or WhatsApp at +92 335 3489550, or visit our official Facebook page: 'ISLAMIA Public School, Nishtar Abad'." },
+                { keywords: "classes, grades, program, level, class", answer: "We offer structured academic programs across Early Childhood Education (ECE), Primary Classes, Middle Classes, and Secondary Classes." },
+                { keywords: "admission, dakhla, procedure, apply, requirements", answer: "Admissions are open! Parents can submit an inquiry online on our Admissions page or visit the school office with the student's B-Form/birth certificate, photographs, and previous school certificate (if applicable)." },
+                { keywords: "fee, fees, tuition, monthly, charges, kharcha", answer: "For accurate, up-to-date fee structure details, please contact the school administration directly via WhatsApp at +92 335 3489550 or visit the school office in Nishtar Abad, as we never quote unverified fee figures." }
+            ],
+            inquiries: [],
+            chatLogs: []
+        };
+
+        let appState = JSON.parse(localStorage.getItem('ips_nishtarabad_state')) || defaultData;
+
+        function saveState() {
+            localStorage.setItem('ips_nishtarabad_state', JSON.stringify(appState));
+            renderAll();
+        }
+
+        // ==================== NAVIGATION ====================
+        function navigateTo(viewId) {
+            document.querySelectorAll('.page-view').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById('view-' + viewId);
+            if (target) target.classList.remove('hidden');
+
+            document.querySelectorAll('.nav-link').forEach(btn => {
+                btn.classList.remove('nav-active');
+                if (btn.dataset.nav === viewId) btn.classList.add('nav-active');
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // ==================== ACADEMICS TABS ====================
+        const academicDetails = {
+            ece: {
+                title: "Early Childhood Education (ECE)",
+                subtitle: "Playgroup, Nursery & Prep",
+                desc: "A warm, joyful introduction to structured learning focusing on phonics, basic numeracy, motor skills, social manners, and Islamic etiquette.",
+                highlights: ["Activity-based literacy & numeracy", "Caring, attentive classroom environment", "Confidence & communication building"]
+            },
+            primary: {
+                title: "Primary Classes (Class 1 – Class 5)",
+                subtitle: "Building Strong Foundations",
+                desc: "Core focus on English, Urdu, Mathematics, General Science, Islamiat, and Social Studies with strong emphasis on reading comprehension and handwriting.",
+                highlights: ["Bilingual conceptual clarity", "Regular classwork & homework feedback", "Moral character & discipline"]
+            },
+            middle: {
+                title: "Middle Classes (Class 6 – Class 8)",
+                subtitle: "Analytical Thinking & Subject Depth",
+                desc: "Transitioning students toward independent study habits, structured science concepts, applied English grammar, and mathematical problem solving.",
+                highlights: ["Structured exam preparation", "Speech, essay & science activities", "Close progress monitoring"]
+            },
+            secondary: {
+                title: "Secondary Classes (Class 9 – Class 10)",
+                subtitle: "Academic Rigor & Future Readiness",
+                desc: "Focused preparation for secondary examinations with disciplined revision schedules, concept mastery, and career/academic counseling.",
+                highlights: ["Comprehensive test series", "Individual academic guidance", "Leadership & responsibility"]
+            }
+        };
+
+        function selectAcademicTab(key) {
+            document.querySelectorAll('.acad-tab').forEach(btn => {
+                btn.classList.remove('bg-school-green', 'text-white', 'shadow');
+                btn.classList.add('bg-white', 'text-school-green', 'border', 'border-slate-200');
+            });
+            const active = document.getElementById('tab-' + key);
+            active.classList.remove('bg-white', 'text-school-green', 'border', 'border-slate-200');
+            active.classList.add('bg-school-green', 'text-white', 'shadow');
+
+            const d = academicDetails[key];
+            document.getElementById('academic-tab-content').innerHTML = `
+                <div class="grid md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-8 space-y-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-school-goldDark">${d.subtitle}</span>
+                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-school-green">${d.title}</h3>
+                        <p class="text-slate-600 leading-relaxed">${d.desc}</p>
+                    </div>
+                    <div class="md:col-span-4 bg-school-cream p-5 rounded-2xl border border-school-gold/30 space-y-2.5">
+                        <h4 class="font-bold text-sm text-school-green">Key Focus Areas</h4>
+                        <ul class="space-y-2 text-xs text-slate-700">
+                            ${d.highlights.map(h => `<li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-school-goldDark"></span>${h}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ==================== RENDER DYNAMIC SECTIONS ====================
+        function renderAll() {
+            document.getElementById('top-announcement-text').textContent = appState.announcement;
+            document.getElementById('admission-policy-note').textContent = appState.admissionNote;
+
+            // Staff Grid
+            document.getElementById('staff-grid').innerHTML = appState.staff.map(s => `
+                <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center card-hover">
+                    <div class="w-20 h-20 rounded-full bg-school-green text-school-gold mx-auto flex items-center justify-center font-serif text-2xl font-bold mb-4 border-2 border-school-gold">
+                        ${s.name.charAt(0)}
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-school-green">${s.name}</h3>
+                    <p class="text-xs font-bold text-school-goldDark uppercase mt-0.5">${s.role}</p>
+                    <p class="text-xs text-slate-500 mt-2">${s.qual}</p>
+                    <p class="text-xs font-medium text-slate-700 mt-1 bg-slate-100 py-1 px-2.5 rounded-full inline-block">${s.subj}</p>
+                </div>
+            `).join('');
+
+            // Events Grid & Home Preview
+            const eventCardHTML = (e) => `
+                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 card-hover flex flex-col">
+                    <img src="${e.img}" alt="${e.title}" class="w-full h-44 object-cover">
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex justify-between items-center text-[11px] font-bold uppercase text-school-goldDark mb-1">
+                                <span>${e.category}</span>
+                                <span>${e.date}</span>
+                            </div>
+                            <h4 class="font-serif text-lg font-bold text-school-green">${e.title}</h4>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">${e.desc}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('events-grid').innerHTML = appState.events.map(eventCardHTML).join('');
+            document.getElementById('home-events-preview').innerHTML = appState.events.slice(0, 3).map(eventCardHTML).join('');
+
+            // Gallery
+            filterGallery('All');
+        }
+
+        function filterGallery(cat) {
+            document.querySelectorAll('.gal-filter').forEach(btn => {
+                if (btn.textContent === cat) {
+                    btn.classList.remove('bg-white', 'text-school-green', 'border', 'border-slate-200');
+                    btn.classList.add('bg-school-green', 'text-white');
+                } else {
+                    btn.classList.add('bg-white', 'text-school-green', 'border', 'border-slate-200');
+                    btn.classList.remove('bg-school-green', 'text-white');
+                }
+            });
+            const items = cat === 'All' ? appState.gallery : appState.gallery.filter(g => g.category === cat);
+            document.getElementById('gallery-grid').innerHTML = items.map(g => `
+                <div onclick="openLightbox('${g.img}', '${g.title}', '${g.category}')" class="cursor-pointer group relative rounded-2xl overflow-hidden border border-slate-200 aspect-[4/3] bg-slate-900">
+                    <img src="${g.img}" alt="${g.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4">
+                        <span class="text-[11px] text-school-gold font-bold uppercase">${g.category}</span>
+                        <h4 class="text-white font-bold text-sm">${g.title}</h4>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openLightbox(img, title, cat) {
+            document.getElementById('lightbox-img').src = img;
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox-cat').textContent = cat;
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        // ==================== FORMS ====================
+        function handleAdmissionSubmit(e) {
+            e.preventDefault();
+            const entry = {
+                student: document.getElementById('adm-student').value,
+                grade: document.getElementById('adm-grade').value,
+                parent: document.getElementById('adm-parent').value,
+                phone: document.getElementById('adm-phone').value,
+                notes: document.getElementById('adm-notes').value,
+                date: new Date().toLocaleDateString()
+            };
+            appState.inquiries.unshift(entry);
+            saveState();
+            e.target.reset();
+            document.getElementById('admission-success-msg').classList.remove('hidden');
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            e.target.reset();
+            document.getElementById('contact-feedback').classList.remove('hidden');
+        }
+
+        // ==================== ISLAMIA SCHOOL AI ASSISTANT ====================
+        function toggleAIChat() {
+            document.getElementById('ai-chat-window').classList.toggle('hidden');
+        }
+
+        function sendQuickPrompt(text) {
+            document.getElementById('ai-input').value = text;
+            handleAIChatSubmit(new Event('submit'));
+        }
+
+        function generateGroundedAIReply(query) {
+            const q = query.toLowerCase();
+            const isUrduScript = /[؀-ۿ]/.test(query);
+            const isRomanUrdu = /(kya|hai|hain|kaise|kab|kahan|dakhla|fees|rabta|batayein|maloom|school|bachon)/i.test(q);
+
+            // Search verified Knowledge Base
+            let bestMatch = null;
+            let bestScore = 0;
+
+            appState.kb.forEach(item => {
+                const keys = item.keywords.toLowerCase().split(',').map(k => k.trim());
+                let score = 0;
+                keys.forEach(k => { if (k && q.includes(k)) score += 2; });
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestMatch = item.answer;
+                }
+            });
+
+            if (bestMatch) {
+                if (isUrduScript) {
+                    return `اسلامیہ پبلک اسکول نشتر آباد کی تصدیق شدہ معلومات کے مطابق:
+
+${bestMatch}
+
+مزید رہنمائی کے لیے واٹس ایپ پر رابطہ کریں: 9550 348 335 92+`;
+                }
+                if (isRomanUrdu) {
+                    return `Islamia Public School, Nishtar Abad ki verified maloomat ke mutabiq:
+
+${bestMatch}
+
+Mazeed maloomat ke liye WhatsApp (+92 335 3489550) par rabta karein.`;
+                }
+                return bestMatch;
+            }
+
+            // Strict fallback: never fabricate unverified details
+            if (isUrduScript) {
+                return "معذرت، اس مخصوص سوال کی تصدیق شدہ تفصیل میرے پاس موجود نہیں ہے۔ براہِ کرم درست معلومات کے لیے اسکول انتظامیہ سے واٹس ایپ (+92 335 3489550) پر براہِ راست رابطہ کریں۔";
+            }
+            if (isRomanUrdu) {
+                return "Maazrat, is sawal ki verified tafseel mere knowledge base mein maujood nahi hai. Sahi maloomat ke liye barah-e-karam school administration se WhatsApp (+92 335 3489550) par rabta karein.";
+            }
+            return "I do not have verified information on that specific detail in our official knowledge base. To ensure you receive accurate information, please contact our school administration directly on WhatsApp at +92 335 3489550.";
+        }
+
+        function handleAIChatSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('ai-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            const container = document.getElementById('ai-messages');
+            container.innerHTML += `
+                <div class="bg-school-green text-white rounded-2xl rounded-tr-none p-3 ml-8 shadow-sm">
+                    <p>${msg}</p>
+                </div>
+            `;
+            input.value = '';
+
+            appState.chatLogs.unshift({ q: msg, time: new Date().toLocaleTimeString() });
+            saveState();
+
+            setTimeout(() => {
+                const reply = generateGroundedAIReply(msg);
+                container.innerHTML += `
+                    <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-none p-3.5 mr-4 shadow-sm text-slate-700 whitespace-pre-line">
+                        <p class="font-semibold text-school-green text-xs mb-1">Islamia School AI Assistant</p>
+                        <p>${reply}</p>
+                    </div>
+                `;
+                container.scrollTop = container.scrollHeight;
+            }, 350);
+        }
+
+        // ==================== ADMIN DASHBOARD ====================
+        function openAdminModal() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+        }
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+        }
+
+        function loginAdmin() {
+            const u = document.getElementById('admin-user').value;
+            const p = document.getElementById('admin-pass').value;
+            if (u === 'admin' && p === 'islamia2026') {
+                document.getElementById('admin-login-view').classList.add('hidden');
+                document.getElementById('admin-dashboard-view').classList.remove('hidden');
+                populateAdminPanels();
+            } else {
+                document.getElementById('admin-login-err').classList.remove('hidden');
+            }
+        }
+
+        function switchAdminTab(tab) {
+            ['content', 'kb', 'staff', 'inquiries'].forEach(t => {
+                document.getElementById('adm-panel-' + t).classList.add('hidden');
+            });
+            document.getElementById('adm-panel-' + tab).classList.remove('hidden');
+        }
+
+        function populateAdminPanels() {
+            document.getElementById('edit-announcement').value = appState.announcement;
+            document.getElementById('edit-adm-note').value = appState.admissionNote;
+
+            document.getElementById('kb-list').innerHTML = appState.kb.map((item, idx) => `
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-start gap-2 text-xs">
+                    <div>
+                        <span class="font-bold text-school-green">[${item.keywords}]</span>
+                        <p class="text-slate-600 mt-0.5">${item.answer}</p>
+                    </div>
+                    <button onclick="deleteKB(${idx})" class="text-red-600 font-bold">Delete</button>
+                </div>
+            `).join('');
+
+            document.getElementById('admin-staff-list').innerHTML = appState.staff.map((s, idx) => `
+                <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex justify-between items-center text-xs">
+                    <span><strong>${s.name}</strong> — ${s.role} (${s.subj})</span>
+                    <button onclick="deleteStaff(${idx})" class="text-red-600 font-bold">Remove</button>
+                </div>
+            `).join('');
+
+            document.getElementById('admin-inquiries-list').innerHTML = appState.inquiries.length
+                ? appState.inquiries.map(i => `<div class="p-2.5 rounded-lg bg-emerald-50 border border-emerald-200"><strong>${i.student}</strong> (${i.grade}) — Parent: ${i.parent} | ${i.phone}</div>`).join('')
+                : '<p class="text-slate-400">No inquiries submitted yet.</p>';
+
+            document.getElementById('admin-chat-logs').innerHTML = appState.chatLogs.length
+                ? appState.chatLogs.slice(0, 10).map(l => `<div class="p-2 rounded bg-slate-50 border border-slate-200">[${l.time}] ${l.q}</div>`).join('')
+                : '<p class="text-slate-400">No chat interactions logged yet.</p>';
+        }
+
+        function saveSiteContent() {
+            appState.announcement = document.getElementById('edit-announcement').value;
+            appState.admissionNote = document.getElementById('edit-adm-note').value;
+            saveState();
+            alert('Website content updated live!');
+        }
+
+        function addKBEntry() {
+            const k = document.getElementById('kb-keywords').value.trim();
+            const a = document.getElementById('kb-answer').value.trim();
+            if (!k || !a) return;
+            appState.kb.unshift({ keywords: k, answer: a });
+            document.getElementById('kb-keywords').value = '';
+            document.getElementById('kb-answer').value = '';
+            saveState();
+            populateAdminPanels();
+        }
+
+        function deleteKB(idx) {
+            appState.kb.splice(idx, 1);
+            saveState();
+            populateAdminPanels();
+        }
+
+        function addStaffMember() {
+            const name = document.getElementById('new-staff-name').value.trim();
+            const role = document.getElementById('new-staff-role').value.trim();
+            const qual = document.getElementById('new-staff-qual').value.trim();
+            const subj = document.getElementById('new-staff-subj').value.trim();
+            if (!name || !role) return;
+            appState.staff.push({ name, role, qual: qual || 'Faculty', subj: subj || 'General' });
+            saveState();
+            populateAdminPanels();
+        }
+
+        function deleteStaff(idx) {
+            appState.staff.splice(idx, 1);
+            saveState();
+            populateAdminPanels();
+        }
+
+        // Initialize
+        lucide.createIcons();
+        selectAcademicTab('ece');
+        renderAll();
+    </script>
+</body>
+</html>
